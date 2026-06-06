@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">Friend project</p>
+          <h1>Health Analyzer</h1>
+          <p class="lede">
+            Enter a few daily health details and get simple metrics, habit notes,
+            and goals you can discuss or improve.
+          </p>
+        </div>
+        <div class="status-card" aria-live="polite">
+          <span class="status-label">Overall</span>
+          <strong id="overallScore">--</strong>
+          <span id="overallText">Fill out the form to see your analysis.</span>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <form class="panel input-panel" id="healthForm">
+          <div class="panel-heading">
+            <h2>Your Details</h2>
+            <button class="ghost-button" type="button" id="resetButton">Reset</button>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              Age
+              <input type="number" id="age" min="13" max="120" value="21" required />
+            </label>
+
+            <label>
+              Sex
+              <select id="sex">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select>
+            </label>
+
+            <label>
+              Height
+              <div class="inline-inputs">
+                <input type="number" id="feet" min="3" max="8" value="5" required />
+                <span>ft</span>
+                <input type="number" id="inches" min="0" max="11" value="8" required />
+                <span>in</span>
+              </div>
+            </label>
+
+            <label>
+              Weight
+              <div class="inline-inputs">
+                <input type="number" id="weight" min="50" max="700" value="150" required />
+                <span>lb</span>
+              </div>
+            </label>
+
+            <label>
+              Waist
+              <div class="inline-inputs">
+                <input type="number" id="waist" min="15" max="90" value="32" required />
+                <span>in</span>
+              </div>
+            </label>
+
+            <label>
+              Activity
+              <select id="activity">
+                <option value="1.2">Low: mostly sitting</option>
+                <option value="1.375">Light: 1-3 workouts/week</option>
+                <option value="1.55" selected>Moderate: 3-5 workouts/week</option>
+                <option value="1.725">High: 6-7 workouts/week</option>
+                <option value="1.9">Athlete-level activity</option>
+              </select>
+            </label>
+
+            <label>
+              Sleep per night
+              <div class="inline-inputs">
+                <input type="number" id="sleep" min="0" max="14" step="0.5" value="7" required />
+                <span>hr</span>
+              </div>
+            </label>
+
+            <label>
+              Water today
+              <div class="inline-inputs">
+                <input type="number" id="water" min="0" max="300" value="70" required />
+                <span>oz</span>
+              </div>
+            </label>
+          </div>
+
+          <button class="primary-button" type="submit">Analyze Health</button>
+          <p class="disclaimer">
+            This app is for learning and general wellness estimates only. It is not
+            medical advice or a diagnosis.
+          </p>
+        </form>
+
+        <section class="results-panel" aria-label="Health analysis results">
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span>BMI</span>
+              <strong id="bmiValue">--</strong>
+              <p id="bmiLabel">Waiting for details</p>
+            </article>
+
+            <article class="metric-card">
+              <span>Daily calories</span>
+              <strong id="calorieValue">--</strong>
+              <p>Estimated maintenance</p>
+            </article>
+
+            <article class="metric-card">
+              <span>Waist ratio</span>
+              <strong id="waistValue">--</strong>
+              <p id="waistLabel">Waiting for details</p>
+            </article>
+
+            <article class="metric-card">
+              <span>Hydration goal</span>
+              <strong id="waterValue">--</strong>
+              <p id="waterLabel">Waiting for details</p>
+            </article>
+          </div>
+
+          <article class="panel insight-panel">
+            <h2>Insights</h2>
+            <ul id="insightsList">
+              <li>Fill out the form, then run the analyzer.</li>
+            </ul>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
